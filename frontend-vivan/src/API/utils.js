@@ -81,7 +81,7 @@ const openWindow = (id, amount, RefNo, callback) => {
             // Close if URL changes OR contains "yogesh.com"
             if (
               // currentURL !== "https://api.vivantravels.com/sucess" ||
-              currentURL.includes("/#/sucess")
+              currentURL.includes("/#/success")
             ) {
               // alert(currentURL);
               // console.log(currentURL);

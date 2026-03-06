@@ -217,7 +217,7 @@ function App() {
             />
           }
         />
-        <Route path="/sucess" element={<SuccessPage />} />
+        <Route path="/success" element={<SuccessPage />} />
 
         <Route
           path="/Contact-us"
