@@ -207,7 +207,7 @@ const Ticketlist = ({ data, onUpdate }) => {
             // onClick={handleViewClick}
             onClick={() =>
               window.open(
-                "http://localhost:5173/#/ticket_details/" +
+                "http://vivan-frontend.vercel.app/#/ticket_details/" +
                 data.Booking_RefNo,
                 "_blank"
               )

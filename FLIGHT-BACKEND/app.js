@@ -10,6 +10,17 @@ const { addfromsucessapi, payment_history } = require("./controllers/Wallet");
 
 
 app.use(cors());
+
+app.get("/server-ip", async (req, res) => {
+  try {
+    const axios = require("axios");
+    const response = await axios.get("https://api.ipify.org?format=json");
+    res.json(response.data);
+  } catch (err) {
+    res.status(500).json({ error: "Unable to fetch IP" });
+  }
+});
+
 app.use(express.json()); // Parse JSON body
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded body
 app.use("/api", apiRouter);
