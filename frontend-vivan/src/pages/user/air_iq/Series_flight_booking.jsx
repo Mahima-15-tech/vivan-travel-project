@@ -27,7 +27,7 @@ import {
   post as HelperPost,
   get,
   formatDate,
-  formatTime,
+  // formatTime,
 } from "../../../API/apiHelper";
 
 const Series_flight_booking = ({ data, traveltype, tripinfo, onUpdate }) => {
@@ -76,10 +76,10 @@ const Series_flight_booking = ({ data, traveltype, tripinfo, onUpdate }) => {
     { value: "1", label: "Child" },
     { value: "2", label: "Infant" },
   ];
-  const selectgender = [
-    { value: "0", label: "Male" },
-    { value: "1", label: "Female" },
-  ];
+  // const selectgender = [
+  //   { value: "0", label: "Male" },
+  //   { value: "1", label: "Female" },
+  // ];
   const selecttitle = [
     { value: "Mr.", label: "MR", type: "0" },
     { value: "Ms.", label: "MS", type: "0" },
@@ -98,15 +98,15 @@ const Series_flight_booking = ({ data, traveltype, tripinfo, onUpdate }) => {
   };
 
   const [passengers, setPassengers] = useState([initialPassengerData]);
-  const PAX_Details = passengers.map((passenger, index) => ({
-    Pax_Id: index + 1,
-    Pax_type: passenger.passenger_type,
-    Title: passenger.title,
-    First_Name: passenger.firstName,
-    Last_Name: passenger.lastName,
-    Age: passenger.Age,
-    DOB: passenger.dateOfBirth,
-  }));
+  // const PAX_Details = passengers.map((passenger, index) => ({
+  //   Pax_Id: index + 1,
+  //   Pax_type: passenger.passenger_type,
+  //   Title: passenger.title,
+  //   First_Name: passenger.firstName,
+  //   Last_Name: passenger.lastName,
+  //   Age: passenger.Age,
+  //   DOB: passenger.dateOfBirth,
+  // }));
 
   const [userData, setUserData] = useState(null);
   useEffect(() => {
@@ -115,7 +115,7 @@ const Series_flight_booking = ({ data, traveltype, tripinfo, onUpdate }) => {
       const userData = JSON.parse(userDataFromSession);
       setUserData(userData.model);
     }
-    const count = Number(adultcount) + Number(childcount) + Number(infantcount);
+    // const count = Number(adultcount) + Number(childcount) + Number(infantcount);
 
     const createPassengerArray = () => {
       const passengersArray = [];
