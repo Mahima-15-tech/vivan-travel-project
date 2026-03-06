@@ -32,6 +32,7 @@ import {
 
 const Series_flight_booking = ({ data, traveltype, tripinfo, onUpdate }) => {
   const navigate = useNavigate();
+  const sitType = 3;
   const adultcount = data[0].adultcount.adult;
   const childcount = data[0].adultcount.child;
   const infantcount = data[0].adultcount.infant;
