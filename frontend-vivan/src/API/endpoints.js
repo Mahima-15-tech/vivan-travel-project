@@ -1,7 +1,7 @@
 // export const SERVER_URL = "http://192.168.31.218:1028/";
 // export const SERVER_URL = "https://flightbackend.readytouse.in/";
 // export const SERVER_URL = "https://api.vivantravels.com/";
-export const SERVER_URL = "http://localhost:4000/";
+export const SERVER_URL = "https://vivan-backend.onrender.com/";
 export const API_BASE_URL = SERVER_URL + "api/";
 export const IMAGE_BASE_URL = SERVER_URL + "";
 export const siteconfig = "setting/settings";
