@@ -1,0 +1,38 @@
+.back-to-top {
+    position: fixed;
+    bottom: 0px;
+    right: -10px;
+    display: block;
+    width: 120px;
+    height: 120px;
+    font-size: 100px;
+    padding: 11px 0;
+    background: var(--primary-color);
+    color: #F8F8FF;
+    text-align: center;
+    opacity: 0;
+    text-decoration: none;
+    -webkit-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3);
+    z-index: 9999;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    box-shadow: 4px 4px 10px 0px rgba(77, 115, 252, 0.3);
+}
+
+.back-to-top:hover {
+    background: #212627;
+    color: #F8F8FF;
+}
+
+.back-to-top.show {
+    opacity: 1;
+}
+
+@media (max-width: 490px) {
+    .back-to-top {
+        right: -20px;
+        bottom: -20px;
+    }
+}

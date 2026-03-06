@@ -1,0 +1,354 @@
+.dropdown-chin .custom-sel-input-block {
+    position: relative;
+    /* width: 250px; */
+    font-family: Arial, sans-serif;
+}
+
+.dropdown-chin .dropdown-header {
+    /* padding: 10px; */
+    /* border: 1px solid #ddd;
+    background-color: #f9f9f9; */
+    cursor: pointer;
+}
+
+.dropdown-chin .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+.dropdown-chin .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-chin .dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+
+.cler-cls {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.refundsit {
+    background: #abf3ab;
+    padding: 2px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.nonrefundsit {
+    background: #ffa7a7;
+    padding: 2px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+
+.additional-info {
+    max-width: 100%;
+}
+
+.additional-info .text-primary {
+    color: var(--primary-color) !important;
+}
+
+.additional-info .text-secondary {
+    color: #6c757d !important;
+}
+
+.additional-info .total-amount {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #ffeeba;
+    color: #856404;
+    text-align: center;
+}
+
+.additional-info h6 {
+    color: #495057;
+}
+
+.additional-info .text-muted {
+    color: #6c757d;
+}
+
+
+.meri_marji {
+    background: rgba(77, 115, 252, 0.2);
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+
+.meri_marji .sub-listing {
+    margin: 0px 20px;
+}
+
+.meri_marji .sub-listing:last-child {
+    margin-bottom: 10px;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+/* ///// */
+
+
+/* Custom styling for flight booking card */
+
+
+.removcity button {
+    padding: 4px 10px;
+    border: 2px solid #ff0000;
+    border-radius: 40px;
+    background: rgb(255 0 0 / 10%);
+    color: #ff0000;
+}
+
+.addcity button {
+    padding: 4px 10px;
+    border: 2px solid #2bff00;
+    border-radius: 40px;
+    background: rgb(43 255 0 / 10%);
+    color: #2bff00;
+}
+
+.btn-delet {
+    background: #ff00002e;
+    border: none;
+    padding: 4px 6px;
+    border-radius: 6px;
+    color: red;
+    font-size: 18px;
+}
+
+
+/* ...... */
+
+.first-tab {
+    margin-bottom: 14px;
+}
+
+.first-tab .tab-container {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .first-tab .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    border-bottom: none;
+    background-color: #f5f5f5;
+    color: #333;
+    flex: 1;
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    .first-tab .tab.active {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+  }
+  .first-tab .tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+  }
+  .first-tab .tab-content.active {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .first-tab .tab {
+      pointer-events: none !important;
+    }
+  }
+
+ .booknowcheckbox .custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .custom-checkbox input {
+    display: none;
+  }
+  
+  .custom-checkbox .checkmark {
+    width: 20px;
+    height: 20px;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  
+  .custom-checkbox input:checked + .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .custom-checkbox .checkmark::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  
+  .custom-checkbox input:checked + .checkmark::after {
+    opacity: 1;
+  }
+  
+
+
+
+.bookingdetails_aireline{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bookingdetails_aireline .airline-name-outside {
+    width: inherit;
+}
+.bookingdetails_aireline .airline-name{
+display: flex;
+align-items: center;
+gap: 14px;
+}
+.bookingdetails_aireline .fair-ruls {
+    width: inherit;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-item {
+  list-style-type: none;
+}
+
+.pagination-btn, .pagination-page {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-btn:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.pagination-page.active {
+  background-color: #ffa85d;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pagination-btn:hover, .pagination-page:hover {
+  background-color: #f2f22a;
+}
+
+.pagination-page {
+  transition: background-color 0.3s;
+}
+/* @media (max-width: 768px) {
+  .paybutton {
+   flex-direction: column;
+  }
+} */
+@media (max-width: 991px) {
+.respo-filter {
+  display: none;
+}
+.respo-filter.active{
+  display: block !important;
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  width: 75%;
+
+}
+}
+
+.cstmroundt .meri_marji .sub-listing > div:first-child {
+flex-wrap: wrap;
+}
+
+.cstmroundt .meri_marji .sub-listing > div:first-child div:last-child p:last-child{
+color: #333;
+}
+.cstmroundt .meri_marji .sub-listing > .flight-area {
+flex-wrap: wrap;
+}
+.cstmroundt .meri_marji .flight-block .flight-area {
+  flex-wrap: wrap;
+}
+.cstmroundt .meri_marji .flight-block .flight-area .airline-name {
+  width: 100%;
+}
+.cstmroundt .meri_marji .sub-listing > .flight-area .row {
+flex-wrap: wrap;
+padding: 0;
+margin: 0;
+}
+.cstmroundt .meri_marji .sub-listing > .flight-area .row > .flight-departure{
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.cstmroundt .meri_marji .sub-listing > .flight-area .row > .flight-detail span {
+  color: #d0d0d0;
+}
+.cstmroundt .meri_marji .sub-listing > .flight-area .row > .flight-detail{
+width: 100%;
+}
+.cstmroundt .meri_marji .sub-listing > .flight-area .row > .flight-detail > .flight-departure{
+width: 100%;
+}
+.cstmroundt .meri_marji .sub-listing > .flight-area .flight-button svg{color: #000;}
+.cstmroundt .meri_marji .sub-listing > .flight-area .flight-button {
+width: 100%;
+margin-top: 1.5rem;
+    justify-content: center;
+}
+
+@media (max-width: 1200px) {
+
+.cstmroundt>* {
+  padding-right: 1px !important;
+  padding-left: 1px !important;
+}}

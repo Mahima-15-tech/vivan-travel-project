@@ -1,0 +1,16 @@
+.our-history .benefit-box {
+    padding: 16px;
+}
+
+.our-history .benefit-box img {
+    width: 48px;
+    height: 48px;
+    filter: invert(41%) sepia(40%) saturate(6780%) hue-rotate(423deg) brightness(142%) contrast(94%) !important
+}
+
+@media (max-width: 575px) {
+    .our-history .benefit-box img {
+        width: 38px;
+        height: 38px;
+    }
+}

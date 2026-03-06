@@ -1,0 +1,25 @@
+/* CloseButton.css */
+.customModalHeader .btn-close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  position: relative; /* Adjust positioning if necessary */
+}
+
+.customModalHeader .btn-close::before {
+  content: "\00D7"; /* Unicode for × */
+  font-size: 1.5rem;
+  color: inherit; /* Inherit color from the button */
+}
+
+.customModalHeader .btn-close:hover::before {
+  color: #000; /* Change color on hover */
+}
+
+.customModalHeader .btn-close:focus {
+  outline: none; /* Remove focus outline */
+}

@@ -1,0 +1,57 @@
+.flight-card .flight-card-slider {
+    margin: 0 -16px;
+}
+
+.flight-card .flight-deal-block {
+    border-radius: 10px;
+    margin: 0 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.flight-card .flight-deal-block .image-box {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.flight-card .flight-deal-block .image-box img {
+    border-radius: 10px;
+    -webkit-transition: all 0.6s linear 0s;
+    transition: all 0.6s linear 0s;
+}
+
+.flight-card .flight-deal-block:hover .image-box img {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition: all 0.6s linear 0s;
+    transition: all 0.6s linear 0s;
+}
+
+.cus-btn {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0.32px;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+    border: none;
+    background: var(--primary-color);
+    box-shadow: 4px 4px 10px 0px rgba(77, 115, 252, 0.3);
+    color: #F8F8FF;
+}
+
+.cus-btn.small-pad {
+    padding: 8px 14px;
+}
+
+.slick-initialized .slick-slide {
+    display: block !important;
+}

@@ -1,0 +1,21 @@
+.nav.nav-bottom-line .nav-link.active {
+    background: transparent;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.nav.nav-bottom-line .nav-link {
+    background: transparent;
+    border: transparent;
+    border-bottom: 3px solid transparent;
+    font-weight: 600;
+    padding: .6rem .75rem;
+    white-space: nowrap;
+    color: #747579;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav.nav-bottom-line .nav-link:hover,
+.nav.nav-bottom-line .nav-link:focus {
+    color: var(--primary-color);
+}

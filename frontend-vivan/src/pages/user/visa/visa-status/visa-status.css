@@ -1,0 +1,95 @@
+.visa-stats {
+    background: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.vs-name {
+    font-size: 18px;
+    padding: 10px 16px;
+    color: black;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px 16px 0 0;
+    background: #dfdfdf;
+}
+
+/* 
+.vs-name {
+    background: var(--primary-color);
+} */
+
+.vs-name svg {
+    width: 24px;
+}
+
+.visa-stats.card .card-body {
+    margin: 0;
+    padding: 20px 4px;
+}
+
+.visa-stats .first-ro h5 {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.visa-stats .first-ro h6 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.visa-stats .secnd-ro h6 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.pend-sit>button {
+    border: none;
+    background: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+} */

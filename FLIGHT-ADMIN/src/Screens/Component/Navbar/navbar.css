@@ -1,0 +1,70 @@
+/* @media screen and (max-width: 1200px) {
+    .navbar-vertical-fixed {
+        width: 7rem;
+        }
+        } */
+
+.mycsschinti .navbar-vertical-aside-initialized {
+    width: 7rem;
+    /* display: none; */
+}
+
+.mycsschinti .navbar-vertical-aside .navbar-brand-wrapper h2,
+.mycsschinti .navbar-vertical-aside .navbar-brand-wrapper .navbar-brand {
+    display: none !important;
+    /* opacity: 0; */
+}
+
+.mycsschinti .navbar-vertical-aside .navbar-brand-wrapper button {
+    width: 100%;
+
+}
+
+
+
+
+@media (min-width: 1200px) {
+
+    .mycsschinti.navbar-vertical-aside-show-xl .navbar:not(.navbar-vertical) {
+        margin-left: 5.25rem;
+    }
+
+    .mycsschinti.navbar-vertical-aside-show-xl .main {
+        padding-left: 6.25rem;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .navbar-vertical-aside-show-xl .navbar-vertical-aside-initialized {
+        left: -400px !important;
+    }
+
+    .navbar-vertical-aside-show-xl .mycssvishu.navbar-vertical-aside-initialized {
+        left: 0px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mycustomchint {
+        margin-left: 108px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */

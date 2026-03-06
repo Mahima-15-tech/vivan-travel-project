@@ -1,0 +1,54 @@
+.contact-us .contact-form {
+    background: #F8F8FF;
+    padding: 24px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    margin-bottom: 80px;
+}
+
+@media (max-width: 992px) {
+    .contact-us .contact-form {
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-us .contact-form {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 576x) {
+    .contact-us .contact-form {
+        margin-bottom: 24px;
+    }
+}
+
+.contact-us .contact-form button {
+    padding: 12px 8px;
+}
+
+.contact-us iframe {
+    width: 100%;
+    height: 568px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
+}
+
+@media (max-width: 992px) {
+    .contact-us iframe {
+        height: 500px;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-us iframe {
+        height: 440px;
+    }
+}
+
+@media (max-width: 576x) {
+    .contact-us iframe {
+        height: 380px;
+    }
+}

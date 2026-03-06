@@ -1,0 +1,22 @@
+.ticketdwnld ul.list-unstyled {
+    list-style: disc;
+    padding-left: 30px;
+}
+
+.ticketdwnld .f_icon_list {
+    max-width: 80px;
+    object-fit: none;
+}
+
+.tkt-instrctn h5 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.tkt-instrctn li {
+font-size: 15px;
+margin-bottom: 6px;
+font-weight: 500;
+}

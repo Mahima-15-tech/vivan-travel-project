@@ -1,0 +1,54 @@
+.nav.nav-bottom-line .nav-link.active {
+    background: transparent;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.nav.nav-bottom-line .nav-link {
+    background: transparent;
+    border: transparent;
+    border-bottom: 3px solid transparent;
+    font-weight: 600;
+    padding: .6rem .75rem;
+    white-space: nowrap;
+    color: #747579;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav.nav-bottom-line .nav-link:hover,
+.nav.nav-bottom-line .nav-link:focus {
+    color: var(--primary-color);
+}
+
+
+/* ..... */
+
+.action-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.175rem;
+    /* Reduced padding for icon-only state */
+    transition: all 0.3s ease;
+}
+
+.action-button .button-text {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    padding: 0.175rem 0.475rem;
+    /* Full padding for button on hover */
+}
+
+.action-button:hover .button-text {
+    opacity: 1;
+    max-width: 100px;
+    /* Set a suitable width for your button text */
+}

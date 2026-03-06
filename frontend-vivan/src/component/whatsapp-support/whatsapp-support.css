@@ -1,0 +1,42 @@
+.whatsapp-support {
+    position: fixed;
+    bottom: 100px;
+    right: 12px;
+    margin: 10px;
+    border-radius: 50%;
+    z-index: 9999;
+    animation: bounce 2s infinite;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.whatsapp-support:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+}
+
+.whatsapp-support a.whatsapp-link {
+    padding: 0;
+}
+
+.whatsapp-support a.whatsapp-link .whatsapp-icon {
+    padding: 10px 12px;
+}

@@ -1,0 +1,270 @@
+.avatar-xl,
+.avatar-xxl {
+    height: 84px;
+    width: 84px;
+}
+
+.nav-pills-primary-soft .nav-item {
+    padding: 0 !important;
+    margin-right: 2px;
+    margin-left: 2px;
+    border-bottom: 0 !important;
+}
+
+.nav-pills-primary-soft.flex-column .nav-item {
+    margin-bottom: 3px;
+    margin-right: 0;
+}
+
+.nav-pills-primary-soft .nav-link {
+    padding: .5rem .8rem !important;
+    color: #0b0a12;
+    font-weight: 500;
+    border-radius: .5rem;
+    font-size: 16px;
+    /* transition: none !important; */
+}
+
+.nav-pills-primary-soft .nav-link.active,
+.nav-pills-primary-soft .nav-link:hover {
+    color: var(--primary-color);
+    background-color: #fadbbf;
+}
+
+/* .nav-pills-primary-soft .nav-link svg {
+    margin-right: 10px;
+    width: 20px;
+} */
+
+.items-center {
+    display: flex;
+    align-items: center;
+}
+
+.sbcstmcls {
+    position: sticky;
+    top: 10px;
+    /* display: none; */
+}
+
+/* personal information Section CSS start */
+
+.menu-btnspt {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.menu-btnspt:hover {
+    background: #cf6100;
+    border-color: var(--primary-color);
+}
+
+.vstack>div {
+    background: white !important;
+    background-color: white !important;
+}
+
+.card-header-title {
+    margin-bottom: 0;
+}
+
+.vstack .border,
+.vstack .ql-container,
+.vstack .ql-toolbar {
+    border: 1px solid #dfdfe3 !important;
+}
+
+.vstack .card-header {
+    padding: 1.25rem;
+}
+
+.vstack .card .card-body {
+    padding: 0;
+    padding: 32px;
+}
+
+.vstack .form-label {
+    margin-bottom: .5rem;
+    font-weight: 400;
+    color: #85878a;
+    font-size: 16px;
+}
+
+.vstack .btn-primary-soft {
+    color: var(--primary-color);
+    background-color: #fadbbf;
+}
+
+
+.vstack .form-select {
+    /* padding: 16px; */
+    height: 100%;
+}
+
+.vstack .form-select::after {
+    display: none;
+}
+
+.select::after {
+    /* display: none !important; */
+}
+
+.vstack .form-select:focus {
+    color: #1e2022;
+    background-color: #fff;
+    border: 0.6px solid rgba(55, 125, 255, .4);
+    outline: 0;
+    box-shadow: 0 0 10px rgba(55, 125, 255, .1);
+}
+
+.vstack .form-check-input {
+    width: 1em;
+    height: 1em;
+}
+
+.vstack .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.vstack .text-primary {
+    color: #ffa85d !important;
+}
+
+/* personal information Section CSS End */
+
+/* Profile Side Bar Responsive Section CSS Start */
+
+
+.profile-sidbar {
+    z-index: 9999;
+}
+
+.profile-sidbar .sbcstmcls {
+    display: block !important;
+}
+
+.pro-sid {
+    position: fixed;
+    z-index: 1042;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    color: #747579;
+    /* visibility: hidden; */
+    background-color: #fff;
+    background: #fff;
+    background-clip: padding-box;
+    outline: 0;
+    transition: transform .3s ease-in-out;
+    top: 0;
+    right: 0%;
+    width: 300px;
+    height: 100%;
+    border-left: 1px solid rgba(0, 0, 0, .175);
+    transform: translate(0%);
+
+}
+
+.removeicns {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 1rem 1.875rem;
+}
+
+.profile-sidbar .offcanvas-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    transition: opacity .15s linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Profile Side Bar Responsive Section CSS End */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ... */

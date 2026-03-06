@@ -1,0 +1,86 @@
+/* Container styling */
+.marquee-container-sit {
+    /* padding: 20px; */
+    /* background-color: #f8f9fa; */
+}
+
+/* Title styling */
+.marquee-container-sit .marquee-title {
+    font-size: 30px;
+    /* font-weight: bold; */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.marquee-container-sit .highlight {
+    color: var(--primary-color);
+}
+
+.marquee-container-sit .marquee-sit {
+    padding: 30px 4px;
+}
+
+/* Marquee item styling */
+.marquee-container-sit .marquee-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px 24px;
+    /* Ensure no space between items */
+}
+
+.marquee-container-sit .marquee-info {
+    margin-top: 10px;
+}
+
+/* Logo styling */
+.marquee-container-sit .marquee-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0;
+    /* Ensure no margin around the logo */
+}
+
+/* Name styling */
+.marquee-container-sit .marquee-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+/* Location styling */
+.marquee-container-sit .marquee-location {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Marquee-specific fixes for seamless scrolling */
+.marquee-container-sit .marquee {
+    display: flex;
+    gap: 0px;
+    /* No gap between items in the marquee */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .marquee-container-sit .marquee-title {
+        font-size: 20px;
+    }
+
+    .marquee-container-sit .marquee-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .marquee-container-sit .marquee-name {
+        font-size: 14px;
+    }
+
+    .marquee-container-sit .marquee-location {
+        font-size: 12px;
+    }
+}

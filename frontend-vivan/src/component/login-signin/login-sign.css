@@ -1,0 +1,564 @@
+@media (max-width: 992px) {
+    .signup {
+        background: url("../../assets/images/login.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+    }
+
+    .botm-p p {
+        color: #fff !important;
+    }
+}
+
+@media (max-width: 492px) {
+    .signup.v2 {
+        display: block !important;
+    }
+}
+
+@media (max-width: 492px) {
+    .signup.v2 .form-block {
+        margin: 48px 0;
+    }
+}
+
+.signup .form-block {
+    border-radius: 20px;
+    /* background: #F8F8FF; */
+}
+
+@media (max-width: 992px) {
+    .signup .form-block {
+        padding: 24px;
+        margin: 0 16px;
+    }
+}
+
+.signup .form-block .google {
+    background: #FC4D4D;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
+}
+
+.signup .form-block .google a:hover {
+    color: #F8F8FF;
+}
+
+.signup .form-block .facebook {
+    background: var(--primary-color);
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
+}
+
+.signup .form-block .facebook a:hover {
+    color: #F8F8FF;
+}
+
+.signup .form-block .link-btn {
+    padding: 16px 32px;
+    display: flex;
+    gap: 12px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup .form-block .or {
+    position: relative;
+    text-align: center;
+}
+
+.signup .form-block .or::after,
+.signup .form-block .or::before {
+    content: "";
+    height: 1px;
+    width: 46%;
+    position: absolute;
+    top: 14px;
+    background: #7A7F85;
+}
+
+@media (max-width: 575px) {
+
+    .signup .form-block .or::after,
+    .signup .form-block .or::before {
+        top: 12px;
+    }
+}
+
+.signup .form-block .or::after {
+    right: 0;
+}
+
+.signup .form-block .or::before {
+    left: 0;
+}
+
+/* .signup .form-block .contact-form .form-control {
+    border-radius: 5px;
+    background: rgba(77, 115, 252, 0.1);
+} */
+
+@media (max-width: 992px) {
+    .signup .img-block {
+        display: none;
+    }
+}
+
+.signup .img-block img {
+    min-height: 100vh;
+    object-fit: cover;
+    width: 100%;
+}
+
+@media (max-width: 1199px) {
+    .signup .sign-up-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .signup .sign-up-image {
+        margin-top: 24px;
+    }
+}
+
+.signup .architex-tilt {
+    height: 100%;
+    object-fit: cover;
+}
+
+.signup .architex-tilt img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.signup .country-selector select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: rgba(77, 115, 252, 0);
+    background-image: none;
+    flex: 1;
+    padding: 11.5px 16px;
+    color: #212627;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+}
+
+.signup .country-selector select::-ms-expand {
+    display: none;
+}
+
+.signup .country-selector .select {
+    position: relative;
+    display: flex;
+    line-height: 150%;
+    background: rgba(77, 115, 252, 0.1);
+    overflow: hidden;
+    border-radius: 0.25em;
+}
+
+.signup .country-selector .select::after {
+    content: "\f078";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 16px 24px;
+    font-family: "Font Awesome 5 Pro";
+    cursor: pointer;
+    pointer-events: none;
+    transition: 0.25s all ease;
+}
+
+.signup .country-selector .select:hover::after {
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* <div className="radio-container">
+     <label className={selectedOption === "user" ? "active" : ""}>
+         <input type="radio" name="option" value="user" checked={selectedOption === "user"} onChange={handleOptionChange} />
+             User
+         </label>
+
+     <label className={selectedOption === "agent" ? "active" : ""}>
+         <input type="radio" name="option" value="agent" checked={selectedOption === "agent"} onChange={handleOptionChange} />
+             Agent
+          </label>
+   </div> */
+
+
+/* 
+.radio-group-sit .radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-group-sit label {
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0px 20px;
+    width: 220px;
+    cursor: pointer;
+    height: 50px;
+    position: relative;
+}
+
+.radio-group-sit input[type="radio"] {
+    display: none;
+}
+
+.radio-group-sit label.active {
+    border-color: var(--primary-color);
+    background-color: #f0f8ff;
+}
+
+.radio-group-sit label.active input[type="radio"] {
+    display: none;
+}
+
+.botm-p p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.botm-p p a {
+    color: var(--primary-color);
+    font-weight: 700;
+} */
+
+
+.radio-container {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    /* background-color: black; */
+}
+
+/* .radio-container * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} */
+
+.radio-container label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0px 20px;
+    width: 180px;
+    cursor: pointer;
+    height: 50px;
+    position: relative;
+    z-index: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.lgin .radio-container label {
+    width: 140px;
+    height: 40px !important;
+}
+
+.lgin .radio-container label::before {
+    width: 140px;
+    height: 40px !important;
+}
+
+.radio-container label::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 45px;
+    /* z-index: -1; */
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 10px;
+    background-color: #ECECF2;
+    border: 2px solid #d5d4d4;
+}
+
+.radio-container label:hover::before {
+    transition: all 0.2s ease;
+    background-color: #fff;
+    z-index: 1;
+    border: 2px solid var(--primary-color);
+}
+
+.radio-container label:has(input:checked)::before {
+    background-color: #fff;
+    border-color: var(--primary-color);
+    height: 50px;
+}
+
+.radio-container label .textrr {
+    color: #2a2a2a;
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 1;
+    transition: all 0.2s ease;
+}
+
+.radio-container label:hover svg,
+.radio-container label.active svg,
+.radio-container label:hover .textrr,
+.radio-container label.active .textrr {
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.radio-container label input[type="radio"] {
+    background-color: #fff;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #d5d4d4;
+    z-index: 1;
+    display: none;
+}
+
+.radio-container label svg {
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+}
+
+.lgin .radio-container label svg {
+    width: 20px;
+    height: 20px;
+}
+
+.radio-container label:hover input[type="radio"] {
+    border-color: var(--primary-color);
+}
+
+.radio-container label input[type="radio"]:checked {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    z-index: -1;
+    animation: pulse 0.7s forwards;
+}
+
+.radio-container label input[type="radio"]:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: #fff;
+    transform: scale(0);
+}
+
+.radio-container label input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    .radio-container {
+        justify-content: center;
+    }
+
+    .radio-container label::before {
+        width: 140px;
+    }
+
+    .radio-container label {
+        width: 140px;
+        padding: 0 8px;
+    }
+
+    .radio-container label .textrr {
+        font-size: 14px;
+    }
+
+    .radio-container label svg {
+        margin-right: 6px;
+        width: 22px;
+        height: 22px;
+        z-index: 1;
+    }
+}
+
+
+
+
+
+
+/* ///// */
+
+
+
+.botm-p {
+    margin-top: 1rem;
+}
+
+.botm-p p {
+    font-size: 14px;
+}
+
+.botm-p a {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.alert {
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+
+.with-icon {
+    padding-left: 2.3rem;
+}
+
+.left-start-icon {
+    position: absolute;
+    left: 10px;
+    top: 51%;
+    transform: translateY(-49%);
+    color: #6c757d;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.visaaply .left-start-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.toggle-password-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.invalid-feedback {
+    display: none;
+    /* Hide feedback initially */
+}
+
+/* Show feedback on invalid input */
+input:invalid~.invalid-feedback {
+    display: block;
+    color: #dc3545;
+    /* Bootstrap's danger color */
+}
+
+
+
+.custom-file-upload {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ced4da;
+    /* Border color for the file upload */
+    border-radius: 0.25rem;
+    /* Adjust border radius for a modern look */
+    padding: 0.5rem 1rem;
+    /* Padding for the label */
+    background-color: #f8f9fa;
+    /* Light background for better visibility */
+    cursor: pointer;
+    /* Pointer cursor to indicate clickable */
+    color: #007bff;
+    /* Color of the text */
+    margin-left: 0.5rem;
+    /* Spacing between input and label */
+}
+
+.custom-file-upload i {
+    margin-right: 0.5rem;
+    /* Space between icon and text */
+}
+
+/* Optional: Add hover effects */
+.custom-file-upload:hover {
+    background-color: #e2e6ea;
+    /* Darken background on hover */
+    border-color: #007bff;
+    /* Change border color on hover */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-contentlogin {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

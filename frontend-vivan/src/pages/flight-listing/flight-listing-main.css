@@ -1,0 +1,389 @@
+/* Flight Listing Side Bar Css Start */
+.sidebar .sidebar-title {
+    background: rgba(77, 115, 252, 0.2);
+    padding: 16px 16px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.sidebar .filter-block .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .filter-block .content-block .custom-control a {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sidebar .filter-block .content-block .custom-control a .fas {
+    font-size: 20px;
+}
+
+.sidebar .filter-block .filter-checkbox .allow_over {
+    font-size: 16px;
+    font-weight: 500;
+    color: #16191A;
+}
+
+.sidebar .filter-block .list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .filter-block .list li ul li {
+    display: flex;
+}
+
+.sidebar .filter-block .slider-track .irs--big {
+    height: 22px;
+    margin-bottom: 0;
+}
+
+.sidebar .filter-block .slider-track .irs--big .irs-line {
+    top: 12px;
+    height: 3px;
+    border: 0;
+    background: #C6CBD2;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.sidebar .filter-block .slider-track .irs--big .irs-bar {
+    top: 12px;
+    height: 3px;
+    border: 0;
+    background: var(--primary-color);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.sidebar .filter-block .slider-track .irs--big .irs-handle {
+    content: "";
+    border-radius: 0;
+    top: 1px;
+    height: 24px;
+    width: 24px;
+    background-color: var(--primary-color);
+    background: var(--primary-color);
+    border: 0;
+    border-radius: 24px;
+    box-shadow: none;
+}
+
+.sidebar .filter-block .slider-track .irs--big .irs-handle:hover {
+    cursor: pointer;
+}
+
+.sidebar .filter-block .colors label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 130%;
+}
+
+@media (max-width: 992px) {
+    .sidebar .filter-block .colors label {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sidebar .filter-block .colors label {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 575px) {
+    .sidebar .filter-block .colors label {
+        font-size: 16px;
+    }
+}
+
+.sidebar .filter-block .colors label input {
+    display: none;
+}
+
+.sidebar .filter-block .colors label .color {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.sidebar .filter-block .colors label .color.non-selected {
+    border: 0;
+}
+
+.sidebar .filter-block .colors label .color.selected {
+    border: 2px solid #F8F8FF;
+    width: 22px;
+    height: 22px;
+}
+
+.sidebar .content-block .custom-control-label {
+    color: #16191A;
+}
+
+/* Flight Listing Side Bar Css End */
+
+
+/* Flight Listing List Bar Css Start */
+
+.flight-listing-page .flight-block .flight-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 1199px) {
+    .flight-listing-page .flight-block .flight-area {
+        display: grid;
+        justify-content: center;
+        gap: 32px;
+    }
+}
+
+.flight-listing-page .flight-block .flight-area .airline-name {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.flight-listing-page .flight-block .flight-area .airline-name img {
+    width: 40px;
+}
+
+/* .flight-listing-page .flight-block .flight-area .airline-name img {
+    border-radius: 50%;
+} */
+
+@media (max-width: 1499px) {
+    .flight-listing-page .flight-block .flight-area .airline-name {
+        display: block;
+    }
+}
+
+@media (max-width: 1199px) {
+    .flight-listing-page .flight-block .flight-area .airline-name {
+        text-align: center;
+    }
+}
+
+.flight-listing-page .flight-block .flight-area .flight-detail {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.flight-listing-page .flight-block .flight-area .flight-detail .f_icon_list {
+    filter: invert(41%) sepia(40%) saturate(6780%) hue-rotate(423deg) brightness(142%) contrast(94%) !important
+}
+
+@media (max-width: 1699px) {
+    .flight-listing-page .flight-block .flight-area .flight-detail {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .flight-listing-page .flight-block .flight-area .flight-detail {
+        gap: 32px;
+    }
+}
+
+.flight-listing-page .flight-block .flight-area .flight-button {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+@media (max-width: 1599px) {
+    .flight-listing-page .flight-block .flight-area .flight-button {
+        gap: 8px;
+        display: block;
+    }
+}
+
+@media (max-width: 1599px) {
+    .flight-listing-page .flight-block .flight-area .flight-button .amount {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .flight-listing-page .flight-block .flight-area .flight-button .amount {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .flight-listing-page .flight-block .flight-area .flight-button {
+        margin: 0 auto;
+    }
+}
+
+.flight-listing-page .accordion-button:is(:not(.collapsed)) i.fa-chevron-down:before {
+    content: "\f077" !important;
+}
+
+
+@media (max-width: 992px) {
+    .time-detail {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .time-detail {
+        padding-top: 10px;
+        text-align: center;
+    }
+}
+
+.time-detail .flight-date {
+    padding: 12px;
+    background: #008238;
+    border-radius: 5px;
+    display: inline-flex;
+    color: #F8F8FF;
+}
+
+.detail-block {
+    background: rgba(77, 115, 252, 0.1);
+    padding: 30px 24px;
+    border-radius: 10px;
+}
+
+.detail-block img {
+    border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+    .detail-block {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .detail-block {
+        text-align: center;
+    }
+}
+
+/* Flight Listing List Css End */
+
+/* Pagination Css Start */
+
+.paginations {
+    display: flex;
+    justify-content: center;
+}
+
+.paginations ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.paginations ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 40px;
+    padding: 8px 0;
+    border-radius: 10px;
+    background: rgba(77, 115, 252, 0.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.paginations ul li.page-info {
+    width: 130px;
+    transition: all 0.5s ease-in-out;
+    background: var(--primary-color);
+    color: #F8F8FF;
+    cursor: default !important;
+}
+
+.paginations ul li button {
+    color: #0B0C0D;
+    border: none;
+    background: transparent;
+}
+
+.paginations ul li:hover {
+    transition: all 0.5s ease-in-out;
+    background: var(--primary-color);
+    color: #F8F8FF;
+    cursor: pointer;
+}
+
+.paginations ul li:hover button {
+    transition: all 0.5s ease-in-out;
+    color: #F8F8FF;
+}
+
+.paginations ul li button.active {
+    background: var(--primary-color);
+    color: #F8F8FF;
+}
+
+.paginations ul li button.active {
+    color: #F8F8FF;
+}
+
+.paginations ul li.arrow button i {
+    color: var(--primary-color);
+}
+
+.paginations ul li.arrow:hover button i {
+    color: #F8F8FF;
+}
+
+
+.amountsss {
+    position: relative;
+}
+
+.tooltip-cstmsit {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    background: #333;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    /* display: none; */
+  }
+  
+  /* .amountsss:hover .tooltip-cstmsit {
+    display: block;
+  } */
+  
+/* .tooltip-cstmsit {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    background: #333;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+
+/* Pagination Css End */

@@ -1,0 +1,54 @@
+.apllying-ser {
+    background: #F8F8FF;
+    padding: 4rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1);
+    border-top: 1px solid #c7cad1;
+    border-bottom: 1px solid #c7cad1;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-radius: 0px;
+}
+
+.text-xs {
+    font-size: 14px;
+    line-height: 1rem;
+}
+
+.v-heigh {
+    height: 425px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .v-heigh {
+        height: 256px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .apllying-ser {
+        padding: 30px;
+    }
+
+    .visa-fr {
+        padding: 30px !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .apllying-ser {
+        padding: 20px;
+    }
+
+    .visa-fr {
+        padding: 20px !important;
+    }
+
+    .v-heigh {
+        height: auto;
+    }
+}
+
+
+
+
+/* /// */

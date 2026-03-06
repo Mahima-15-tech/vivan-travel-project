@@ -1,0 +1,187 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.hero-banner-1 {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(248, 248, 255, 0) 0%, #f8f8ff 100%);
+    padding-bottom: 80px;
+}
+
+.hero-banner-1 .content {
+    padding: 100px 0 35px 0;
+    position: relative;
+}
+
+.hero-banner-1 .content .vector-image svg {
+    position: absolute;
+    bottom: 4px;
+    right: 153px;
+    width: 80%;
+    z-index: 0;
+}
+
+.hero-banner-1 .content .vector-image svg .path {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 0;
+}
+
+.hero-banner-1 .content .vector-image svg .dashed {
+    stroke-dasharray: 22;
+    animation: dash 8s linear alternate infinite;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: 500;
+    }
+}
+
+.hero-banner-1 .content .vector-image .location-image {
+    position: absolute;
+    bottom: 23%;
+    right: 6%;
+    filter: invert(41%) sepia(40%) saturate(6780%) hue-rotate(423deg) brightness(142%) contrast(94%) !important
+}
+
+.row-gap-5 {
+    row-gap: 3rem !important;
+}
+
+.hero-banner-1 .content .image,
+.hero-banner-1 .content .content-block {
+    position: relative;
+    z-index: 100;
+}
+
+.cus-btn {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0.32px;
+    padding: 12px 22px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+    border: none;
+    background: var(--primary-color);
+    box-shadow: 4px 4px 10px 0px rgba(77, 115, 252, 0.3);
+    color: #F8F8FF;
+}
+
+.hero-banner-1 .content .image,
+.hero-banner-1 .content .content-block {
+    position: relative;
+    z-index: 0;
+}
+
+.flynow-tilt img,
+.applynow-tilt img,
+.otbnow-tilt img {
+    max-height: 420px;
+}
+
+
+
+
+@media (max-width: 1599px) {
+    .hero-banner-1 .content .vector-image svg {
+        right: 25px;
+        width: 90%;
+    }
+
+    .hero-banner-1 .content .vector-image .location-image {
+        right: 0%;
+    }
+}
+
+@media (max-width: 1399px) {
+    .hero-banner-1 .content {
+        padding: 80px 0 35px 0;
+    }
+
+    .hero-banner-1 .content .vector-image svg {
+        right: 93px;
+        width: 80%;
+        bottom: -8px;
+        transform: rotate(172deg);
+    }
+
+    .hero-banner-1 .content .vector-image .location-image {
+        bottom: 54%;
+        right: 6%;
+    }
+}
+
+@media (max-width: 1199px) {
+    .hero-banner-1 .content {
+        padding: 50px 0 35px 0;
+    }
+
+    .hero-banner-1 .content .vector-image svg {
+        bottom: -30px;
+    }
+
+    .hero-banner-1 .content .vector-image .location-image {
+        bottom: 57%;
+    }
+}
+
+@media (max-width: 1099px) {
+    .hero-banner-1 .content {
+        padding: 35px 0 35px 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-banner-1 .content .vector-image svg {
+        bottom: 16px;
+        transform: rotate(-12deg);
+        right: 4%;
+    }
+
+    .hero-banner-1 .content .vector-image .location-image {
+        bottom: 63%;
+        right: 2%;
+    }
+}
+
+@media (max-width: 871px) {
+    .hero-banner-1 .content .vector-image svg {
+        display: none;
+    }
+
+    .hero-banner-1 .content .vector-image .location-image {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-banner-1 .content .vector-image svg {
+        display: block;
+        bottom: 2px;
+        transform: rotate(212deg);
+        width: 91%;
+        right: 15%;
+    }
+}
+
+@media (max-width: 499px) {
+    .hero-banner-1 .content .vector-image svg {
+        bottom: -24px;
+        transform: rotate(218deg);
+    }
+}

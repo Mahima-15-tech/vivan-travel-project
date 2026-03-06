@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-switch {
+  width: 60px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch.on {
+  background-color: #a5d6a7; /* Light green for ON */
+}
+
+.toggle-switch.off {
+  background-color: #ef9a9a; /* Light red for OFF */
+}
+
+.toggle-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #444;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.toggle-switch.on .toggle-circle {
+  transform: translateX(30px);
+  background-color: #4caf50; /* Darker green */
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+}
+
+.toggle-switch.off .toggle-circle {
+  transform: translateX(0);
+  background-color: #f44336; /* Darker red */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.toggle-label {
+  font-size: 16px;
+  color: #333;
+}

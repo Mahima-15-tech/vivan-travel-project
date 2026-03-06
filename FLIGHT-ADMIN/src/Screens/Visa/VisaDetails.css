@@ -1,0 +1,68 @@
+/* VisaDetails.css */
+
+.visadetails-page {
+    padding: 2rem;
+    background-color: #f8f9fa;
+  }
+  
+  .visa-details-card {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .card-header-section {
+    background-color: #073b74;
+    color: white;
+  }
+  
+  .card-header-section h5 {
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .details-view p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .edit-btn,
+  .save-btn {
+    background-color: #073b74;
+    color: white;
+  }
+  
+  .edit-btn:hover,
+  .save-btn:hover {
+    background-color: #073b74;
+  }
+  
+  .cancel-btn {
+    margin-left: 10px;
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  @media (max-width: 768px) {
+    .visa-details-card {
+      padding: 1rem;
+    }
+  
+    .details-view p {
+      font-size: 0.9rem;
+    }
+  }
+  
+
+  @media (min-width: 576px) {
+    .cstmnodl .modal-dialog {
+        max-width: 1009px;
+        margin: 1.75rem auto;
+    }
+}
