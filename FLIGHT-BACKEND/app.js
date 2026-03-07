@@ -59,7 +59,9 @@ app.post("/sucess", (req, res) => {
     // console.log("hdsisghjg");
   }
   const params = new URLSearchParams(req.body).toString();
-  res.redirect(`https://vivan-frontend.vercel.app/#/success?${params}`);
+  res.redirect(
+    `https://vivan-frontend.vercel.app/#/success?status=${status}&order_id=${txnid}&amount=${amount}`
+    );
 });
 
 app.listen(4000, () => {

@@ -616,7 +616,7 @@ async function hdfcCallback(req, res) {
       );
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=failed&order_id=${order_id}`
+        `${process.env.FRONTEND_URL}/#/success?status=failed&order_id=${order_id}&amount=${orderDetails.amount}`
       );
     }
 
@@ -708,7 +708,7 @@ async function hdfcCallback(req, res) {
       );
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}`
+        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
       );
     }
 
@@ -802,8 +802,8 @@ async function hdfcCallback(req, res) {
     console.log("✅ BOOKING SAVED SUCCESSFULLY");
 
     return res.redirect(
-      `${process.env.FRONTEND_URL}/#/success?status=success&order_id=${order_id}`
-    );
+      `${process.env.FRONTEND_URL}/#/success?status=success&order_id=${order_id}&amount=${orderDetails.amount}`
+      );
   } catch (error) {
     console.log(
       "❌ CALLBACK ERROR:",
