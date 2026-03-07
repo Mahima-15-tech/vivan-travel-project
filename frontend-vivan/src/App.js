@@ -54,7 +54,7 @@ function SuccessPage() {
 const [amount, setAmount] = useState("");
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
+    const queryParams = new URLSearchParams(window.location.href.split("?")[1]);
     const udf1 = queryParams.get("udf1");
     const order_id = queryParams.get("order_id");
 const amountParam = queryParams.get("amount");
