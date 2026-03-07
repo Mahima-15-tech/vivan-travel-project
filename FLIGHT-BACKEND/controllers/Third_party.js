@@ -730,8 +730,8 @@ async function hdfcCallback(req, res) {
       console.log("❌ SUPPLIER BOOKING FAILED");
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}`
-      );
+        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+        );
     }
 
     // ==============================
@@ -752,8 +752,8 @@ async function hdfcCallback(req, res) {
       console.log("❌ Supplier booking reference missing");
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}`
-      );
+        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+        );
     }
 
     // ==============================
