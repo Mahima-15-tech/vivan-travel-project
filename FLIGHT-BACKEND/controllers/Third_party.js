@@ -620,6 +620,23 @@ async function hdfcCallback(req, res) {
       );
     }
 
+    // 🔁 REVALIDATE FLIGHT BEFORE BOOKING
+const revalidateResponse = await axios.post(supplierUrl, {
+  sit_type: booking.sit_type.toString(),
+  type: "revalidate",
+  data: JSON.stringify(payload),
+});
+
+console.log("🔁 REVALIDATE RESPONSE:", revalidateResponse.data);
+
+if (!revalidateResponse?.data?.status) {
+  console.log("❌ REVALIDATE FAILED");
+
+  return res.redirect(
+    `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+  );
+}
+
     console.log("🔥 PAYMENT SUCCESS - STARTING BOOKING");
 
     // ==============================
