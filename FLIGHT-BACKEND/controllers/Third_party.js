@@ -2328,8 +2328,10 @@ async function gflight(req, res) {
   
   const data = await SettingModel.findOne({ where: { id: "1" } });
   let urlforapi = "";
-  let methodforapi = "";
-  let dataforapi = req.body.data ? JSON.parse(req.body.data) : "";
+  let dataforapi =
+  typeof req.body.data === "string"
+    ? JSON.parse(req.body.data)
+    : req.body.data;
   if (req.body.sit_type == "3") {
     urlforapi =
       req.body.type == "checkflight"
