@@ -50,10 +50,17 @@ function SuccessPage() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(null); // 'success' or 'failed'
   const [image, setImage] = useState(null);
+  const [orderId, setOrderId] = useState("");
+const [amount, setAmount] = useState("");
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const udf1 = queryParams.get("udf1");
+    const order_id = queryParams.get("order_id");
+const amountParam = queryParams.get("amount");
+
+setOrderId(order_id || "");
+setAmount(amountParam || "");
     const statusParam = queryParams.get("status");
     const fullUrl = window.location.href;
     localStorage.setItem("lastPaymentUrl", fullUrl);
@@ -146,6 +153,19 @@ function SuccessPage() {
           {message}
         </p>
       )}
+
+{orderId && (
+  <p style={{ fontSize: "18px", marginTop: "10px" }}>
+    <b>Order ID:</b> {orderId}
+  </p>
+)}
+
+{amount && (
+  <p style={{ fontSize: "18px" }}>
+    <b>Amount:</b> ₹{amount}
+  </p>
+)}
+
     </div>
   );
 }
