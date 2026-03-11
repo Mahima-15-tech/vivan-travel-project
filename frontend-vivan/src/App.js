@@ -65,7 +65,10 @@ setAmount(amountParam || "");
     const fullUrl = window.location.href;
     localStorage.setItem("lastPaymentUrl", fullUrl);
 
-    if (statusParam && statusParam.toLowerCase() === "success") {
+    if (
+      statusParam &&
+      ["success", "booking_failed"].includes(statusParam.toLowerCase())
+    ) {
       setStatus("success");
       setStatusMessage("Success");
       setImage(SuccessImage);
@@ -90,9 +93,15 @@ setAmount(amountParam || "");
           }
         }, 2000);
       } else {
-        setMessage(
-          "✅ Payment Successful! Please close this tab and return to the app."
-        );
+        if (statusParam.toLowerCase() === "booking_failed") {
+          setMessage(
+            "✅ Payment Successful!\nHowever, flight booking could not be completed due to unavailability.\nOur team will assist you shortly."
+          );
+        } else {
+          setMessage(
+            "✅ Payment Successful! Please close this tab and return to the app."
+          );
+        }
         setTimeout(() => {
           if (window.history.length > 1) {
           } else {

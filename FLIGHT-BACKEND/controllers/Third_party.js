@@ -698,8 +698,28 @@ async function hdfcCallback(req, res) {
     
     console.log("🔁 REVALIDATE RESPONSE:", revalidateResponse.data);
     
-    if (!revalidateResponse?.data?.status) {
+    // if (!revalidateResponse?.data?.status) {
+    //   console.log("❌ REVALIDATE FAILED");
+    
+    //   return res.redirect(
+    //     `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+    //   );
+    // }
+
+    if (
+      !revalidateResponse?.data?.status ||
+      !revalidateResponse?.data?.data?.success
+    ) {
       console.log("❌ REVALIDATE FAILED");
+    
+      await BookingModel.update(
+        {
+          status: "Failed",
+          amount_status: "Success",
+          amount_api_res: JSON.stringify(orderDetails),
+        },
+        { where: { Booking_RefNo: order_id } }
+      );
     
       return res.redirect(
         `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
