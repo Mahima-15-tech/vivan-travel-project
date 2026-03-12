@@ -632,6 +632,27 @@ async function hdfcCallback(req, res) {
       where: { Booking_RefNo: order_id },
     });
 
+    // ==============================
+// ✅ AMOUNT VALIDATION
+// ==============================
+
+if (Number(orderDetails.amount) !== Number(booking.Amount)) {
+  console.log("❌ Amount mismatch detected");
+
+  await BookingModel.update(
+    {
+      amount_status: "Failed",
+      status: "Failed",
+      amount_api_res: JSON.stringify(orderDetails),
+    },
+    { where: { Booking_RefNo: order_id } }
+  );
+
+  return res.redirect(
+    `${process.env.FRONTEND_URL}/#/success?status=failed&order_id=${order_id}&amount=${orderDetails.amount}`
+  );
+}
+
     if (!booking) {
       console.log("❌ Booking not found");
       return res.status(404).send("Booking not found");
