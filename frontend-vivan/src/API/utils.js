@@ -141,19 +141,17 @@ const closeWindow = (popupWindow) => {
 };
 
 // Razorpay ko replace karke HDFC use karenge
-export async function razarpaypayment(orderId, amount, email, callback) {
+export async function razarpaypayment(orderId,  email, callback) {
   try {
     console.log("🚀 HDFC Create Order Called");
 console.log({
   orderId,
-  amount,
   email
 });
     const res = await HelperPost(
       "third_party/hdfc-create-order",
       {
         order_id: orderId,
-        amount: amount,
         customer_email: email,
       },
       true

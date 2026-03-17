@@ -53,14 +53,35 @@ function SuccessPage() {
   const [orderId, setOrderId] = useState("");
 const [amount, setAmount] = useState("");
 
+const fetchBookingAmount = async (orderId) => {
+  try {
+    const res = await fetch("/api/booking/get_ticket_details", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ Booking_RefNo: orderId }),
+    });
+
+    const data = await res.json();
+
+    if (data?.data?.Amount) {
+      setAmount(data.data.Amount);
+    }
+  } catch (err) {
+    console.error("Amount fetch error:", err);
+  }
+};
+
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.href.split("?")[1]);
     const udf1 = queryParams.get("udf1");
     const order_id = queryParams.get("order_id");
-const amountParam = queryParams.get("amount");
+    setOrderId(order_id || "");
 
-setOrderId(order_id || "");
-setAmount(amountParam || "");
+    if (order_id) {
+      fetchBookingAmount(order_id);
+    }
     const statusParam = queryParams.get("status");
     const fullUrl = window.location.href;
     localStorage.setItem("lastPaymentUrl", fullUrl);

@@ -109,7 +109,26 @@ async function hdfcCreateOrder(req, res){
 console.log(req.body);
 
 
-    const { amount, order_id, customer_email } = req.body;
+const { order_id, customer_email } = req.body;
+
+// 🔥 GET AMOUNT FROM DB
+const booking = await BookingModel.findOne({
+  where: { Booking_RefNo: order_id },
+});
+
+if (!booking) {
+  return res.status(404).json({
+    success: false,
+    message: "Booking not found",
+  });
+}
+
+// ✅ USE DB AMOUNT ONLY
+const amount = booking.Amount;
+
+if (Number(req.body.amount) !== Number(booking.Amount)) {
+  console.log("⚠️ Amount tampering attempt:", req.body.amount);
+}
     
 
     if (!amount || !order_id) {
@@ -616,7 +635,7 @@ async function hdfcCallback(req, res) {
       );
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=failed&order_id=${order_id}&amount=${orderDetails.amount}`
+        `${process.env.FRONTEND_URL}/#/success?status=failed&order_id=${order_id}`
       );
     }
 
@@ -649,7 +668,7 @@ if (Number(orderDetails.amount) !== Number(booking.Amount)) {
   );
 
   return res.redirect(
-    `${process.env.FRONTEND_URL}/#/success?status=failed&order_id=${order_id}&amount=${orderDetails.amount}`
+    `${process.env.FRONTEND_URL}/#/success?status=failed&order_id=${order_id}`
   );
 }
 
@@ -743,7 +762,7 @@ if (Number(orderDetails.amount) !== Number(booking.Amount)) {
       );
     
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}`
       );
     }
 
@@ -768,7 +787,7 @@ if (Number(orderDetails.amount) !== Number(booking.Amount)) {
       );
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}`
       );
     }
 
@@ -790,7 +809,7 @@ if (Number(orderDetails.amount) !== Number(booking.Amount)) {
       console.log("❌ SUPPLIER BOOKING FAILED");
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}`
         );
     }
 
@@ -812,7 +831,7 @@ if (Number(orderDetails.amount) !== Number(booking.Amount)) {
       console.log("❌ Supplier booking reference missing");
 
       return res.redirect(
-        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}&amount=${orderDetails.amount}`
+        `${process.env.FRONTEND_URL}/#/success?status=booking_failed&order_id=${order_id}`
         );
     }
 
@@ -862,7 +881,7 @@ if (Number(orderDetails.amount) !== Number(booking.Amount)) {
     console.log("✅ BOOKING SAVED SUCCESSFULLY");
 
     return res.redirect(
-      `${process.env.FRONTEND_URL}/#/success?status=success&order_id=${order_id}&amount=${orderDetails.amount}`
+      `${process.env.FRONTEND_URL}/#/success?status=success&order_id=${order_id}`
       );
   } catch (error) {
     console.log(

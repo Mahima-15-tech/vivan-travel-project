@@ -57,7 +57,26 @@ async function addv2(req, res) {
       });
     }
 
-    await BookingModel.create(req.body);
+    const payload = req.body;
+
+    // 🔒 NEVER TRUST FRONTEND AMOUNT
+    // Calculate or validate amount here
+    
+    // Example (minimum protection)
+    if (!payload.Amount || payload.Amount <= 0) {
+      return res.status(400).send({
+        status: false,
+        message: "Invalid amount",
+      });
+    }
+    
+    // OPTIONAL: agar tumhare paas actual price calculation logic hai
+    // to yaha DB ya flight data se compare karo
+    
+    await BookingModel.create({
+      ...payload,
+      Amount: payload.Amount, // only after validation
+    });
 
     return res.status(200).send({
       status: true,

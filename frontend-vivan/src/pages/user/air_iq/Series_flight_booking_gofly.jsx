@@ -411,7 +411,7 @@ setfinaldatafor_payment([
 await updateAfterPayment(refval, "Hold");
 
 // THEN PAYMENT
-razarpaypayment(refval, payingamount, userData.email);
+razarpaypayment(refval, userData.email);
       } else {
         await updateAfterPayment(refval, "Wallet");
       }
