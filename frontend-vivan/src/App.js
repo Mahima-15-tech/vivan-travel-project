@@ -55,7 +55,7 @@ const [amount, setAmount] = useState("");
 
 const fetchBookingAmount = async (orderId) => {
   try {
-    const res = await fetch("/api/booking/get_ticket_details", {
+    const res = await fetch("https://vivan-backend.onrender.com/api/booking/get_ticket_details", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,6 +64,7 @@ const fetchBookingAmount = async (orderId) => {
     });
 
     const data = await res.json();
+console.log("BOOKING DATA:", data);
 
     if (data?.data?.Amount) {
       setAmount(data.data.Amount);
