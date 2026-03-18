@@ -38,12 +38,62 @@ async function add(req, res) {
   }
 }
 
-async function addv2(req, res) {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(403).json({ errors: errors.array() });
-  }
+// async function addv2(req, res) {
+//   const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     return res.status(403).json({ errors: errors.array() });
+//   }
 
+//   try {
+//     // 🔎 CHECK IF BOOKING EXISTS
+//     const existing = await BookingModel.findOne({
+//       where: { Booking_RefNo: req.body.Booking_RefNo },
+//     });
+
+//     if (existing) {
+//       return res.status(200).send({
+//         status: true,
+//         message: "Booking already exists",
+//       });
+//     }
+
+//     const payload = req.body;
+
+//     // 🔒 NEVER TRUST FRONTEND AMOUNT
+//     // Calculate or validate amount here
+    
+//     // Example (minimum protection)
+//     if (!payload.Amount || payload.Amount <= 0) {
+//       return res.status(400).send({
+//         status: false,
+//         message: "Invalid amount",
+//       });
+//     }
+    
+//     // OPTIONAL: agar tumhare paas actual price calculation logic hai
+//     // to yaha DB ya flight data se compare karo
+    
+//     await BookingModel.create({
+//       ...payload,
+//       Amount: payload.Amount, // only after validation
+//     });
+
+//     return res.status(200).send({
+//       status: true,
+//       message: "Ticket Create successfully",
+//     });
+
+//   } catch (error) {
+//     res.status(500).send({
+//       status: false,
+//       message: "Failed to processing request",
+//       error: error.message,
+//     });
+//   }
+// }
+
+
+async function addv2(req, res) {
   try {
     const existing = await BookingModel.findOne({
       where: { Booking_RefNo: req.body.Booking_RefNo },
@@ -56,27 +106,19 @@ async function addv2(req, res) {
       });
     }
 
-    // ❌ REMOVE AMOUNT FROM FRONTEND
-    const { Amount, ...safePayload } = req.body;
+    const payload = req.body;
 
-    // ✅ GET REAL AMOUNT (IMPORTANT)
-    // ⚠️ YAHAN TUMHE REAL SOURCE SE LENA HOGA
-
-    // Example 1 (temporary fix - reject if coming from frontend)
-    if (Amount) {
+    // 🚨 BASIC SECURITY (temp fix)
+    if (!payload.Amount || payload.Amount <= 100) {
       return res.status(400).send({
         status: false,
-        message: "Amount should not be passed from frontend",
+        message: "Invalid or suspicious amount",
       });
     }
 
-    // Example 2 (BEST - use actual price logic)
-    const actualAmount = await getActualAmountFromYourLogic(req.body);
-    // 👆 ye tumhe implement karna padega (flight API / pricing)
-
     await BookingModel.create({
-      ...safePayload,
-      Amount: actualAmount, // ✅ ONLY SERVER VALUE
+      ...payload,
+      Amount: payload.Amount,
     });
 
     return res.status(200).send({
@@ -85,9 +127,9 @@ async function addv2(req, res) {
     });
 
   } catch (error) {
-    res.status(500).send({
+    return res.status(500).send({
       status: false,
-      message: "Failed to processing request",
+      message: "Failed",
       error: error.message,
     });
   }
