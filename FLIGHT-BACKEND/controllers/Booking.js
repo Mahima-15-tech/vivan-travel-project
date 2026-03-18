@@ -176,52 +176,31 @@ const verifyResponse = await axios.post(
 // ✅ ADD THIS LINE
 const apiData = verifyResponse.data;
 
-// 🔍 VALIDATION
-if (!apiData?.status) {
+// ✅ proper validation
+if (!apiData?.status || !apiData?.data?.success) {
   return res.status(400).json({
     status: false,
     message: "Flight verification failed",
   });
 }
 
-// ✅ SAFE PRICE FETCH
-let actualAmount = null;
+// ✅ correct price
+const actualAmount = apiData?.data?._data?.flight?.total_price;
 
-// CASE 1
-if (apiData?.data?._data?.flight?.price?.isisnetfare) {
-  actualAmount = apiData.data._data.flight.price.isisnetfare;
-}
-
-// CASE 2
-else if (apiData?.data?._data?.price?.isisnetfare) {
-  actualAmount = apiData.data._data.price.isisnetfare;
-}
-
-// CASE 3 (fallback)
-else if (apiData?.data?._data?.total_price) {
-  actualAmount = apiData.data._data.total_price;
-}
-
-// ❌ STILL NOT FOUND
 if (!actualAmount) {
-  console.log("FULL API RESPONSE:", JSON.stringify(apiData, null, 2)); // 🔥 IMPORTANT
-
   return res.status(400).json({
     status: false,
     message: "Unable to fetch valid price",
   });
 }
 
-console.log(JSON.stringify(verifyResponse.data, null, 2));
-
-    // 🚨 CRITICAL SECURITY CHECK
-    if (Number(payload.Amount) !== actualAmount) {
-      return res.status(400).json({
-        status: false,
-        message: "Amount mismatch detected",
-      });
-    }
-
+// 🚨 security check
+if (Number(payload.Amount) !== Number(actualAmount)) {
+  return res.status(400).json({
+    status: false,
+    message: "Amount mismatch detected",
+  });
+}
     // 🔁 Check duplicate AFTER validation
     const existing = await BookingModel.findOne({
       where: { Booking_RefNo: payload.Booking_RefNo },
