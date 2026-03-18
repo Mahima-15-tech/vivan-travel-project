@@ -180,9 +180,18 @@ if (!verifyResponse.data?.status) {
 }
 
 // ✅ TRUSTED PRICE FROM API
-const actualAmount = Number(
-  verifyResponse.data.data._data.flight.price.isisnetfare
-);
+const actualAmount =
+  apiData?.data?._data?.flight?.price?.isisnetfare ||
+  apiData?.data?._data?.price?.isisnetfare;
+
+if (!actualAmount) {
+  return res.status(400).json({
+    status: false,
+    message: "Unable to fetch valid price",
+  });
+}
+
+console.log(JSON.stringify(verifyResponse.data, null, 2));
 
     // 🚨 CRITICAL SECURITY CHECK
     if (Number(payload.Amount) !== actualAmount) {
