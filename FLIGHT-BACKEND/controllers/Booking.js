@@ -216,6 +216,10 @@ if (Number(payload.Amount) !== Number(actualAmount)) {
     // ✅ Save only trusted amount
     await BookingModel.create({
       ...payload,
+      BookingFlightDetails: JSON.stringify({
+        ...flightDetails,
+        total_price: actualAmount, // ✅ overwrite with real price
+      }),
       Amount: actualAmount,
     });
 
