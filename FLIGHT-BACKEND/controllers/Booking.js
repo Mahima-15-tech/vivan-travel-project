@@ -152,34 +152,39 @@ async function addv2(req, res) {
     }
 
     // ❌ Missing total_price
-    if (!flightDetails.total_price) {
-      return res.status(400).json({
-        status: false,
-        message: "Invalid booking details",
-      });
-    }
+    // if (!flightDetails.total_price) {
+    //   return res.status(400).json({
+    //     status: false,
+    //     message: "Invalid booking details",
+    //   });
+    // }
 
     // 🔥 CALL AGAIN YOUR CHECKFLIGHT API (trusted source)
-    const verifyResponse = await axios.post(
-      "https://vivan-backend.onrender.com/api/third_party/gflight",
-      {
-        sit_type: payload.sit_type.toString(),
-        type: "checkflight",
-        data: JSON.stringify({
-          query: flightDetails.query,
-          flight_keys: flightDetails.flight_keys,
-        }),
-      }
-    );
+// 🔥 CALL AGAIN YOUR CHECKFLIGHT API
+const verifyResponse = await axios.post(
+  "https://vivan-backend.onrender.com/api/third_party/gflight",
+  {
+    sit_type: payload.sit_type.toString(),
+    type: "checkflight",
+    data: JSON.stringify({
+      query: flightDetails.query,
+      flight_keys: flightDetails.flight_keys,
+    }),
+  }
+);
 
-if (!verifyResponse.data?.status) {
+// ✅ ADD THIS LINE
+const apiData = verifyResponse.data;
+
+// 🔍 VALIDATION
+if (!apiData?.status) {
   return res.status(400).json({
     status: false,
     message: "Flight verification failed",
   });
 }
 
-// ✅ TRUSTED PRICE FROM API
+// ✅ SAFE PRICE FETCH
 const actualAmount =
   apiData?.data?._data?.flight?.price?.isisnetfare ||
   apiData?.data?._data?.price?.isisnetfare;
