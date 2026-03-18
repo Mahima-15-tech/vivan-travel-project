@@ -38,59 +38,59 @@ async function add(req, res) {
   }
 }
 
-async function addv2(req, res) {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(403).json({ errors: errors.array() });
-  }
+// async function addv2(req, res) {
+//   const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     return res.status(403).json({ errors: errors.array() });
+//   }
 
-  try {
-    // 🔎 CHECK IF BOOKING EXISTS
-    const existing = await BookingModel.findOne({
-      where: { Booking_RefNo: req.body.Booking_RefNo },
-    });
+//   try {
+//     // 🔎 CHECK IF BOOKING EXISTS
+//     const existing = await BookingModel.findOne({
+//       where: { Booking_RefNo: req.body.Booking_RefNo },
+//     });
 
-    if (existing) {
-      return res.status(200).send({
-        status: true,
-        message: "Booking already exists",
-      });
-    }
+//     if (existing) {
+//       return res.status(200).send({
+//         status: true,
+//         message: "Booking already exists",
+//       });
+//     }
 
-    const payload = req.body;
+//     const payload = req.body;
 
-    // 🔒 NEVER TRUST FRONTEND AMOUNT
-    // Calculate or validate amount here
+//     // 🔒 NEVER TRUST FRONTEND AMOUNT
+//     // Calculate or validate amount here
     
-    // Example (minimum protection)
-    if (!payload.Amount || payload.Amount <= 0) {
-      return res.status(400).send({
-        status: false,
-        message: "Invalid amount",
-      });
-    }
+//     // Example (minimum protection)
+//     if (!payload.Amount || payload.Amount <= 0) {
+//       return res.status(400).send({
+//         status: false,
+//         message: "Invalid amount",
+//       });
+//     }
     
-    // OPTIONAL: agar tumhare paas actual price calculation logic hai
-    // to yaha DB ya flight data se compare karo
+//     // OPTIONAL: agar tumhare paas actual price calculation logic hai
+//     // to yaha DB ya flight data se compare karo
     
-    await BookingModel.create({
-      ...payload,
-      Amount: payload.Amount, // only after validation
-    });
+//     await BookingModel.create({
+//       ...payload,
+//       Amount: payload.Amount, // only after validation
+//     });
 
-    return res.status(200).send({
-      status: true,
-      message: "Ticket Create successfully",
-    });
+//     return res.status(200).send({
+//       status: true,
+//       message: "Ticket Create successfully",
+//     });
 
-  } catch (error) {
-    res.status(500).send({
-      status: false,
-      message: "Failed to processing request",
-      error: error.message,
-    });
-  }
-}
+//   } catch (error) {
+//     res.status(500).send({
+//       status: false,
+//       message: "Failed to processing request",
+//       error: error.message,
+//     });
+//   }
+// }
 
 
 // async function addv2(req, res) {
@@ -134,6 +134,73 @@ async function addv2(req, res) {
 //     });
 //   }
 // }
+
+
+async function addv2(req, res) {
+  try {
+    const payload = req.body;
+
+    // 🔍 Parse booking details
+    let flightDetails;
+    try {
+      flightDetails = JSON.parse(payload.BookingFlightDetails);
+    } catch (err) {
+      return res.status(400).json({
+        status: false,
+        message: "Invalid BookingFlightDetails format",
+      });
+    }
+
+    // ❌ Missing total_price
+    if (!flightDetails.total_price) {
+      return res.status(400).json({
+        status: false,
+        message: "Invalid booking details",
+      });
+    }
+
+    const actualAmount = Number(flightDetails.total_price);
+
+    // 🚨 CRITICAL SECURITY CHECK
+    if (Number(payload.Amount) !== actualAmount) {
+      return res.status(400).json({
+        status: false,
+        message: "Amount mismatch detected",
+      });
+    }
+
+    // 🔁 Check duplicate AFTER validation
+    const existing = await BookingModel.findOne({
+      where: { Booking_RefNo: payload.Booking_RefNo },
+    });
+
+    if (existing) {
+      return res.status(200).json({
+        status: true,
+        message: "Booking already exists",
+      });
+    }
+
+    // ✅ Save only trusted amount
+    await BookingModel.create({
+      ...payload,
+      Amount: actualAmount,
+    });
+
+    return res.status(200).json({
+      status: true,
+      message: "Ticket Create successfully",
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      status: false,
+      message: "Server error",
+      error: error.message,
+    });
+  }
+}
+
 
 async function update(req, res) {
   const errors = validationResult(req);
