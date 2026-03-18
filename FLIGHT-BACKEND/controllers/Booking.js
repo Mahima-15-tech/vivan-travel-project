@@ -185,11 +185,27 @@ if (!apiData?.status) {
 }
 
 // ✅ SAFE PRICE FETCH
-const actualAmount =
-  apiData?.data?._data?.flight?.price?.isisnetfare ||
-  apiData?.data?._data?.price?.isisnetfare;
+let actualAmount = null;
 
+// CASE 1
+if (apiData?.data?._data?.flight?.price?.isisnetfare) {
+  actualAmount = apiData.data._data.flight.price.isisnetfare;
+}
+
+// CASE 2
+else if (apiData?.data?._data?.price?.isisnetfare) {
+  actualAmount = apiData.data._data.price.isisnetfare;
+}
+
+// CASE 3 (fallback)
+else if (apiData?.data?._data?.total_price) {
+  actualAmount = apiData.data._data.total_price;
+}
+
+// ❌ STILL NOT FOUND
 if (!actualAmount) {
+  console.log("FULL API RESPONSE:", JSON.stringify(apiData, null, 2)); // 🔥 IMPORTANT
+
   return res.status(400).json({
     status: false,
     message: "Unable to fetch valid price",
