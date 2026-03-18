@@ -159,7 +159,30 @@ async function addv2(req, res) {
       });
     }
 
-    const actualAmount = Number(flightDetails.total_price);
+    // 🔥 CALL AGAIN YOUR CHECKFLIGHT API (trusted source)
+    const verifyResponse = await axios.post(
+      "https://vivan-backend.onrender.com/api/third_party/gflight",
+      {
+        sit_type: payload.sit_type.toString(),
+        type: "checkflight",
+        data: JSON.stringify({
+          query: flightDetails.query,
+          flight_keys: flightDetails.flight_keys,
+        }),
+      }
+    );
+
+if (!verifyResponse.data?.status) {
+  return res.status(400).json({
+    status: false,
+    message: "Flight verification failed",
+  });
+}
+
+// ✅ TRUSTED PRICE FROM API
+const actualAmount = Number(
+  verifyResponse.data.data._data.flight.price.isisnetfare
+);
 
     // 🚨 CRITICAL SECURITY CHECK
     if (Number(payload.Amount) !== actualAmount) {
