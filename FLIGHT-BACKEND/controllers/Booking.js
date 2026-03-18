@@ -38,63 +38,14 @@ async function add(req, res) {
   }
 }
 
-// async function addv2(req, res) {
-//   const errors = validationResult(req);
-//   if (!errors.isEmpty()) {
-//     return res.status(403).json({ errors: errors.array() });
-//   }
-
-//   try {
-//     // 🔎 CHECK IF BOOKING EXISTS
-//     const existing = await BookingModel.findOne({
-//       where: { Booking_RefNo: req.body.Booking_RefNo },
-//     });
-
-//     if (existing) {
-//       return res.status(200).send({
-//         status: true,
-//         message: "Booking already exists",
-//       });
-//     }
-
-//     const payload = req.body;
-
-//     // 🔒 NEVER TRUST FRONTEND AMOUNT
-//     // Calculate or validate amount here
-    
-//     // Example (minimum protection)
-//     if (!payload.Amount || payload.Amount <= 0) {
-//       return res.status(400).send({
-//         status: false,
-//         message: "Invalid amount",
-//       });
-//     }
-    
-//     // OPTIONAL: agar tumhare paas actual price calculation logic hai
-//     // to yaha DB ya flight data se compare karo
-    
-//     await BookingModel.create({
-//       ...payload,
-//       Amount: payload.Amount, // only after validation
-//     });
-
-//     return res.status(200).send({
-//       status: true,
-//       message: "Ticket Create successfully",
-//     });
-
-//   } catch (error) {
-//     res.status(500).send({
-//       status: false,
-//       message: "Failed to processing request",
-//       error: error.message,
-//     });
-//   }
-// }
-
-
 async function addv2(req, res) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(403).json({ errors: errors.array() });
+  }
+
   try {
+    // 🔎 CHECK IF BOOKING EXISTS
     const existing = await BookingModel.findOne({
       where: { Booking_RefNo: req.body.Booking_RefNo },
     });
@@ -108,17 +59,23 @@ async function addv2(req, res) {
 
     const payload = req.body;
 
-    // 🚨 BASIC SECURITY (temp fix)
-    if (!payload.Amount || payload.Amount <= 100) {
+    // 🔒 NEVER TRUST FRONTEND AMOUNT
+    // Calculate or validate amount here
+    
+    // Example (minimum protection)
+    if (!payload.Amount || payload.Amount <= 0) {
       return res.status(400).send({
         status: false,
-        message: "Invalid or suspicious amount",
+        message: "Invalid amount",
       });
     }
-
+    
+    // OPTIONAL: agar tumhare paas actual price calculation logic hai
+    // to yaha DB ya flight data se compare karo
+    
     await BookingModel.create({
       ...payload,
-      Amount: payload.Amount,
+      Amount: payload.Amount, // only after validation
     });
 
     return res.status(200).send({
@@ -127,13 +84,56 @@ async function addv2(req, res) {
     });
 
   } catch (error) {
-    return res.status(500).send({
+    res.status(500).send({
       status: false,
-      message: "Failed",
+      message: "Failed to processing request",
       error: error.message,
     });
   }
 }
+
+
+// async function addv2(req, res) {
+//   try {
+//     const existing = await BookingModel.findOne({
+//       where: { Booking_RefNo: req.body.Booking_RefNo },
+//     });
+
+//     if (existing) {
+//       return res.status(200).send({
+//         status: true,
+//         message: "Booking already exists",
+//       });
+//     }
+
+//     const payload = req.body;
+
+//     // 🚨 BASIC SECURITY (temp fix)
+//     if (!payload.Amount || payload.Amount <= 100) {
+//       return res.status(400).send({
+//         status: false,
+//         message: "Invalid or suspicious amount",
+//       });
+//     }
+
+//     await BookingModel.create({
+//       ...payload,
+//       Amount: payload.Amount,
+//     });
+
+//     return res.status(200).send({
+//       status: true,
+//       message: "Ticket Create successfully",
+//     });
+
+//   } catch (error) {
+//     return res.status(500).send({
+//       status: false,
+//       message: "Failed",
+//       error: error.message,
+//     });
+//   }
+// }
 
 async function update(req, res) {
   const errors = validationResult(req);
