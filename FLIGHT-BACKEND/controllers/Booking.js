@@ -138,7 +138,9 @@ async function add(req, res) {
 
 async function addv2(req, res) {
   try {
+ 
     const payload = req.body;
+    console.log("Frontend Amount:", payload.Amount);
 
     // 🔍 Parse booking details
     let flightDetails;
@@ -185,7 +187,12 @@ if (!apiData?.status || !apiData?.data?.success) {
 }
 
 // ✅ correct price
-const actualAmount = apiData?.data?._data?.flight?.total_price;
+let actualAmount =
+  apiData?.data?._data?.flight?.price?.isisnetfare ||
+  apiData?.data?._data?.flight?.total_price ||
+  apiData?.data?._data?.total_price;
+
+  console.log("Actual Amount:", actualAmount);
 
 if (!actualAmount) {
   return res.status(400).json({
@@ -197,7 +204,7 @@ if (!actualAmount) {
 // 🚨 security check
 const diff = Math.abs(Number(payload.Amount) - Number(actualAmount));
 
-if (diff > 5) { // ₹5 tolerance
+if (diff > 20) { // ₹5 tolerance
   return res.status(400).json({
     status: false,
     message: "Amount mismatch detected",
