@@ -239,8 +239,7 @@ if (diff > 5) { // ₹5 tolerance
   }
 }
 
-console.log("Frontend Amount:", payload.Amount);
-console.log("Actual Amount:", actualAmount);
+
 
 
 async function update(req, res) {
