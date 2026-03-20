@@ -267,53 +267,34 @@ async function addv2(req, res) {
       });
     }
 
-    // 🔥 REAL PRICE FROM API (trusted)
-    const verifyResponse = await axios.post(
-      "https://vivan-backend.onrender.com/api/third_party/gflight",
-      {
-        sit_type: payload.sit_type.toString(),
-        type: "checkflight",
-        data: JSON.stringify({
-          query: flightDetails.query,
-          flight_keys: flightDetails.flight_keys,
-        }),
-      }
-    );
-
-    const apiData = verifyResponse.data;
-
-    if (!apiData?.status || !apiData?.data?.success) {
-      return res.status(400).json({
-        status: false,
-        message: "Flight verification failed",
-      });
-    }
-
-    // ✅ trusted amount
-    const actualAmount =
-      apiData?.data?._data?.flight?.price?.isisnetfare ||
-      apiData?.data?._data?.flight?.total_price;
-
-    if (!actualAmount) {
-      return res.status(400).json({
-        status: false,
-        message: "Unable to fetch valid price",
-      });
-    }
-
+    const actualAmount = Number(flightDetails.total_price);
     const frontendAmount = Number(payload.Amount);
 
-    const diff = Math.abs(frontendAmount - actualAmount);
+    // ❌ invalid
+    if (!actualAmount || actualAmount <= 0) {
+      return res.status(400).json({
+        status: false,
+        message: "Invalid amount",
+      });
+    }
 
-    // 🔒 STRICT CHECK (NO MANIPULATION)
+    // 🔒 mismatch check
+    const diff = Math.abs(frontendAmount - actualAmount);
     if (diff > 1) {
       return res.status(400).json({
         status: false,
-        message: "Amount mismatch detected",
+        message: "Amount tampered (mismatch)",
       });
     }
 
-    // duplicate check
+    // 🔥 FAKE LOW PRICE BLOCK
+    if (actualAmount < 1000) {
+      return res.status(400).json({
+        status: false,
+        message: "Amount tampered (invalid price)",
+      });
+    }
+
     const existing = await BookingModel.findOne({
       where: { Booking_RefNo: payload.Booking_RefNo },
     });
@@ -325,14 +306,13 @@ async function addv2(req, res) {
       });
     }
 
-    // ✅ SAVE TRUSTED VALUE ONLY
     await BookingModel.create({
       ...payload,
+      Amount: actualAmount,
       BookingFlightDetails: JSON.stringify({
         ...flightDetails,
         total_price: actualAmount,
       }),
-      Amount: actualAmount,
     });
 
     return res.status(200).json({
@@ -341,7 +321,6 @@ async function addv2(req, res) {
     });
 
   } catch (error) {
-    console.error(error);
     return res.status(500).json({
       status: false,
       message: "Server error",
