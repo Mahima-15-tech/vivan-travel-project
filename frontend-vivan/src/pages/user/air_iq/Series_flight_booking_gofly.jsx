@@ -189,8 +189,12 @@ const response = await HelperPost(
             }
 
             totalAmount = Number(
-              dataree.flight.price?.isisnetfare || dataree.flight.total_price
+              flightData?.flight?.price?.isisnetfare ||
+              flightData?.flight?.total_price
             );
+
+            console.log("FLIGHT DATA:", flightData);
+            console.log("FINAL AMOUNT:", totalAmount);
 
             // Set the calculated amounts (assuming you have state variables for these)
             setInfantamount(infantAmount);
