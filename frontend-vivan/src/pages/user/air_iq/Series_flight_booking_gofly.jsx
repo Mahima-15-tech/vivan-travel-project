@@ -188,7 +188,7 @@ const response = await HelperPost(
                 Number(childcount);
             }
 
-            totalAmount = Number(flightData.price.isisnetfare);
+            totalAmount = Number(dataree.flight.total_price);
 
             // Set the calculated amounts (assuming you have state variables for these)
             setInfantamount(infantAmount);
@@ -356,9 +356,7 @@ for (let i = 0; i < Number(infantcount); i++) {
           nChd: childcount,
           legs: dataree.query.legs,
         },
-        flight_keys: [
-          dataree?.flight?.key || dataree?.flight?.other?.key
-        ],
+        flight_keys: [dataree.flight.key],
         total_price: payingamount,
         currency: "INR",
         paxes: PAX_Details,

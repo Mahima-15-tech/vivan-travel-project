@@ -195,7 +195,9 @@ if (!actualAmount) {
 }
 
 // 🚨 security check
-if (Number(payload.Amount) !== Number(actualAmount)) {
+const diff = Math.abs(Number(payload.Amount) - Number(actualAmount));
+
+if (diff > 5) { // ₹5 tolerance
   return res.status(400).json({
     status: false,
     message: "Amount mismatch detected",
@@ -236,6 +238,9 @@ if (Number(payload.Amount) !== Number(actualAmount)) {
     });
   }
 }
+
+console.log("Frontend Amount:", payload.Amount);
+console.log("Actual Amount:", actualAmount);
 
 
 async function update(req, res) {
