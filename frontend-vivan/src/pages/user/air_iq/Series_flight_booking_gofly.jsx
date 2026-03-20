@@ -149,7 +149,7 @@ const response = await HelperPost(
           console.log("CHECKFLIGHT RESPONSE FULL:", dataree);
 
           if (dataree.status && dataree.data && dataree.data._data) {
-            const flightData = dataree.data._data.flight;
+            const flightData = dataree.data._data;
 
             if (!flightData.flight.key) {
               toast.error("Flight key missing. Please search again.");
@@ -180,26 +180,27 @@ const response = await HelperPost(
             // ✅ FIXED PATHS
             if (infantcount > 0) {
               infantAmount =
-                (Number(flightData.infant_price) + charges) *
+                (Number(flightData.flight.infant_price) + charges) *
                 Number(infantcount);
             }
           
             if (adultcount > 0) {
               adultAmount =
-                (Number(flightData.adult_price) + charges) *
+                (Number(flightData.flight.adult_price) + charges) *
                 Number(adultcount);
             }
           
             if (childcount > 0) {
               childAmount =
-                (Number(flightData.child_price) + charges) *
+                (Number(flightData.flight.child_price) + charges) *
                 Number(childcount);
             }
           
             // ✅ FINAL PRICE (MOST IMPORTANT)
             totalAmount = Number(
-              flightData?.price?.isisnetfare ||
-              flightData?.total_price
+              flightData?.flight?.price?.isisnetfare ||
+              flightData?.flight?.total_price ||
+              0
             );
           
             console.log("FINAL AMOUNT:", totalAmount);

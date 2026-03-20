@@ -138,15 +138,20 @@ async function add(req, res) {
 
 async function addv2(req, res) {
   try {
- 
+    
     const payload = req.body;
     console.log("Frontend Amount:", payload.Amount);
 
+    console.log("Payload:", payload);
+    
     // 🔍 Parse booking details
     let flightDetails;
     try {
       flightDetails = JSON.parse(payload.BookingFlightDetails);
+      console.log("Flight Details:", flightDetails);
+
     } catch (err) {
+
       return res.status(400).json({
         status: false,
         message: "Invalid BookingFlightDetails format",
@@ -174,6 +179,8 @@ const verifyResponse = await axios.post(
     }),
   }
 );
+
+console.log("VERIFY RESPONSE FULL:", verifyResponse.data);
 
 // ✅ ADD THIS LINE
 const apiData = verifyResponse.data;
