@@ -163,40 +163,56 @@ const response = await HelperPost(
 
           // setUData(data.data);
 
-          if (data.length > 0) {
-            const flightData = data[0].flight;
+          if (dataree.status && dataree.data && dataree.data._data) {
+
+            const flightData = dataree.data._data; // ✅ correct
+          
+            console.log("FULL API RESPONSE:", dataree);
+            console.log("EXTRACTED flightData:", flightData);
+          
             const charges = Number(finalcharge);
-
+          
             let infantAmount = 0,
-              adultAmount = 0,
-              childAmount = 0,
-              totalAmount = 0;
-
+                adultAmount = 0,
+                childAmount = 0,
+                totalAmount = 0;
+          
+            // ✅ FIXED PATHS
             if (infantcount > 0) {
               infantAmount =
-                (Number(flightData.other.infant_price) + charges) *
+                (Number(flightData.flight.infant_price) + charges) *
                 Number(infantcount);
             }
+          
             if (adultcount > 0) {
               adultAmount =
-                (Number(flightData.other.adult_price) + charges) *
+                (Number(flightData.flight.adult_price) + charges) *
                 Number(adultcount);
             }
+          
             if (childcount > 0) {
               childAmount =
-                (Number(flightData.other.child_price) + charges) *
+                (Number(flightData.flight.child_price) + charges) *
                 Number(childcount);
             }
-
+          
+            // ✅ FINAL PRICE (MOST IMPORTANT)
             totalAmount = Number(
               flightData?.flight?.price?.isisnetfare ||
-              flightData?.flight?.total_price
+              flightData?.flight?.total_price ||
+              0
             );
-
-            console.log("FLIGHT DATA:", flightData);
+          
             console.log("FINAL AMOUNT:", totalAmount);
-
-            // Set the calculated amounts (assuming you have state variables for these)
+          
+            // ❌ safety
+            if (!totalAmount || totalAmount <= 0) {
+              toast.error("Invalid amount from API");
+              return;
+            }
+          
+            // ✅ set state
+            setdataree(flightData);
             setInfantamount(infantAmount);
             setAdult_amount(adultAmount);
             setchild_amount(childAmount);
